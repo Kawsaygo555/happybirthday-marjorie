@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Cumpleaños Marjo ✨</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>¡Feliz Cumpleaños, Marjo!</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+  <div class="container">
+    <h1>✨ ¡Feliz Cumpleaños, Marjo! ✨</h1>
 
-        <h1>✨ ¡Feliz Cumpleaños, Marjo! ✨</h1>
+    <p class="dedicatoria">
+      Hoy celebramos a una persona especial, dedicada y llena de luz. Gracias por tu amistad y por todos los momentos compartidos en la universidad. ¡Que este nuevo año te traiga alegría, aprendizajes y muchos sueños cumplidos!
+    </p>
 
-        <p class="dedicatoria">
-            Hoy celebramos a una persona especial, dedicada y llena de luz.  
-            Gracias por tu amistad y por todos los momentos compartidos en la universidad.  
-            ¡Que este nuevo año te traiga alegría, aprendizajes y muchos sueños cumplidos!
-        </p>
+    <!-- === CARRUSEL DE IMÁGENES === -->
+    <div class="carousel">
+      <div class="carousel-inner">
+        <!-- EJEMPLO: rutas dentro de la carpeta img/ -->
+        <img src="img/foto1.jpg" class="active" alt="Marjo 1">
+        <img src="img/foto2.jpg" alt="Marjo 2">
+        <img src="img/foto3.jpg" alt="Marjo 3">
+        <!-- Añade o quita <img> según necesites -->
+      </div>
 
-        <div class="foto">
-            <img src="marjorie.jpg" alt="Foto de Marjorie">
-        </div>
-
-        <button class="btn">De tu amigo Christian 💛</button>
+      <button class="prev" aria-label="Anterior">❮</button>
+      <button class="next" aria-label="Siguiente">❯</button>
     </div>
+    <!-- === FIN CARRUSEL === -->
 
-    <canvas id="confetti"></canvas>
-    <script src="script.js"></script>
+    <button id="surpriseBtn" class="btn">De tu amigo Christian 💛</button>
+
+    <!-- Carta sorpresa (oculta hasta que se active) -->
+    <div id="card" class="card hidden">
+      <h2>Para Liz / Marjo</h2>
+      <p>Gracias por las risas en los exámenes, por la perseverancia con los niveles de inglés y por ser una gran compañera. ¡Feliz cumpleaños! — Christian</p>
+      <button id="closeCard" class="close">Cerrar</button>
+    </div>
+  </div>
+
+  <canvas id="confetti"></canvas>
+
+  <script src="script.js"></script>
 </body>
 </html>
