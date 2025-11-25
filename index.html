@@ -3,41 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Cumpleaños Marjorie 💛</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>KawsayGo - Inicio</title>
+
+    <style>
+        /* === ESTILOS DEL CARRUSEL === */
+        .carousel-container {
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 12px;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            display: none;
+        }
+
+        .carousel-images img.active {
+            display: block;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: white;
+            background: rgba(0,0,0,0.4);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .prev { left: 5px; }
+        .next { right: 5px; }
+    </style>
 </head>
 
 <body>
 
-    <h1 class="titulo">🎉 Feliz Cumpleaños Liz / Marjo 💛</h1>
+    <h2 style="text-align:center">Carrusel de Fotos KawsayGo</h2>
 
-    <!-- ============================
-          CARRUSEL DE MARJORIE / LIZ
-         ============================ -->
     <div class="carousel-container">
-        <div class="carousel-inner">
+        <div class="carousel-images">
 
-            <img src="img/foto1.jpg" class="active" alt="Marjo 1">
-            <img src="img/foto2.png" alt="Marjo 2">
-            <img src="img/foto3.jpeg" alt="Marjo 3">
-            <img src="img/foto4.jpg" alt="Marjo 4">
-            <img src="img/foto5.jpg" alt="Marjo 5">
-            <img src="img/foto6.jpg" alt="Marjo 6">
-            <img src="img/foto7.png" alt="Marjo 7">
-            <img src="img/foto8.png" alt="Marjo 8">
-            <img src="img/foto9.jpeg" alt="Marjo 9">
-            <img src="img/foto10.jpeg" alt="Marjo 10">
-            <img src="img/foto11.png" alt="Marjo 11">
+            <!-- Aquí se muestran todas tus fotos -->
+            <img src="img/foto1.jpg"    class="active">
+            <img src="img/foto2.png">
+            <img src="img/foto3.jpeg">
+            <img src="img/foto4.jpg">
+            <img src="img/foto5.jpg">
+            <img src="img/foto6.jpg">
+            <img src="img/foto7.png">
+            <img src="img/foto8.png">
+            <img src="img/foto9.jpeg">
+            <img src="img/foto10.jpeg">
+            <img src="img/foto11.png">
 
         </div>
+
+        <button class="carousel-btn prev">&#10094;</button>
+        <button class="carousel-btn next">&#10095;</button>
     </div>
 
-    <p class="mensaje">
-        Gracias por compartir momentos especiales en la U, por tu esfuerzo y tu forma de ser.  
-        Este pequeño detalle es para que sonrías hoy y siempre 💛✨  
-    </p>
+    <script>
+        const images = document.querySelectorAll(".carousel-images img");
+        let currentIndex = 0;
 
-    <script src="script.js"></script>
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.classList.remove("active");
+                if (i === index) img.classList.add("active");
+            });
+        }
+
+        document.querySelector(".prev").addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        });
+
+        document.querySelector(".next").addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        });
+
+        /* Cambio automático cada 5 segundos */
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }, 5000);
+    </script>
+
 </body>
-
 </html>
