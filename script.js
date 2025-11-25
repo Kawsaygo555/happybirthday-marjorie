@@ -119,3 +119,18 @@ function startConfetti(durationMs = 3000) {
 /* ---------------------------
    FIN
    --------------------------- */
+// ============================
+//  CARRUSEL AUTOMÁTICO
+// ============================
+
+let currentIndex = 0;
+const images = document.querySelectorAll(".carousel-inner img");
+
+function showNext() {
+    images[currentIndex].classList.remove("active");
+    currentIndex = (currentIndex + 1) % images.length;
+    images[currentIndex].classList.add("active");
+}
+
+// Cambia de imagen cada 4 segundos
+setInterval(showNext, 4000);
