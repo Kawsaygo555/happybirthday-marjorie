@@ -9,35 +9,106 @@
 
 <body>
 
-    <h1 class="titulo">🎉 Feliz Cumpleaños Liz / Marjo 💛</h1>
+<!-- ============================
+        MÚSICA DE FONDO
+============================ -->
+<audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_0b449ddc07.mp3?filename=relaxing-music-112191.mp3" type="audio/mpeg">
+</audio>
 
-    <!-- ============================
-          CARRUSEL DE MARJORIE / LIZ
-         ============================ -->
-    <div class="carousel-container">
-        <div class="carousel-inner">
+<h1 class="titulo">🎉 Feliz Cumpleaños Liz / Marjo 💛</h1>
 
-            <img src="img/foto1.jpg" class="active" alt="Marjo 1">
-            <img src="img/foto2.jpg" alt="Marjo 2">
-            <img src="img/foto3.jpg" alt="Marjo 3">
-            <img src="img/foto4.jpg" alt="Marjo 4">
-            <img src="img/foto5.jpg" alt="Marjo 5">
-            <img src="img/foto6.jpg" alt="Marjo 6">
-            <img src="img/foto7.jpg" alt="Marjo 7">
-            <img src="img/foto8.jpg" alt="Marjo 8">
-            <img src="img/foto9.jpg" alt="Marjo 9">
-            <img src="img/foto10.jpg" alt="Marjo 10">
-            <img src="img/foto11.jpg" alt="Marjo 11">
+<!-- ============================
+        CARRUSEL
+============================ -->
+<div class="carousel-container">
+    <div class="carousel-inner">
 
-        </div>
+        <img src="img/foto1.jpg" class="active" alt="Marjo 1">
+        <img src="img/foto2.jpg" alt="Marjo 2">
+        <img src="img/foto3.jpg" alt="Marjo 3">
+        <img src="img/foto4.jpg" alt="Marjo 4">
+        <img src="img/foto5.jpg" alt="Marjo 5">
+        <img src="img/foto6.jpg" alt="Marjo 6">
+        <img src="img/foto7.jpg" alt="Marjo 7">
+        <img src="img/foto8.jpg" alt="Marjo 8">
+        <img src="img/foto9.jpg" alt="Marjo 9">
+        <img src="img/foto10.jpg" alt="Marjo 10">
+        <img src="img/foto11.jpg" alt="Marjo 11">
+
     </div>
+</div>
 
-    <p class="mensaje">
-        Gracias por compartir momentos especiales en la U, por tu esfuerzo y tu forma de ser.  
-        Este pequeño detalle es para que sonrías hoy y siempre 💛✨  
-    </p>
+<!-- ============================
+    MENSAJE TIPO "TYPING"
+============================ -->
+<p class="mensaje" id="typing"></p>
 
-    <script src="script.js"></script>
+<script>
+    const text = "Gracias por compartir momentos especiales en la U, por tu esfuerzo y tu forma de ser. Este detalle es para que sonrías hoy y siempre 💛✨";
+    let i = 0;
+
+    function type() {
+        if (i < text.length) {
+            document.getElementById("typing").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, 40);
+        }
+    }
+    type();
+</script>
+
+<!-- ============================
+     SCRIPT DEL CARRUSEL
+============================ -->
+<script src="script.js"></script>
+
+<!-- ============================
+          CONFETTI
+============================ -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+    setTimeout(() => {
+        confetti({
+            particleCount: 200,
+            spread: 120,
+            origin: { y: 0.6 }
+        });
+    }, 800);
+</script>
+
+<!-- ============================
+        GLOBOS FLOTANDO
+============================ -->
+<style>
+.balloon {
+    position: absolute;
+    bottom: -150px;
+    animation: floatUp 12s infinite ease-in;
+    opacity: 0.8;
+    user-select: none;
+}
+
+@keyframes floatUp {
+    0% { bottom: -150px; }
+    100% { bottom: 110%; }
+}
+</style>
+
+<script>
+function randomBalloon() {
+    let balloon = document.createElement("div");
+    balloon.classList.add("balloon");
+    balloon.style.left = Math.random() * 90 + "%";
+    balloon.style.fontSize = Math.random() * 40 + 30 + "px";
+    balloon.innerHTML = "🎈";
+    document.body.appendChild(balloon);
+
+    setTimeout(() => balloon.remove(), 12000);
+}
+
+setInterval(randomBalloon, 1500);
+</script>
+
 </body>
-
 </html>
