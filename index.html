@@ -37,7 +37,19 @@
         Este pequeño detalle es para que sonrías hoy y siempre 💛✨  
     </p>
 
-    <script src="script.js"></script>
-</body>
+<script src="script.js"></script>
 
+<!-- CONFETTI -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+    setTimeout(() => {
+        confetti({
+            particleCount: 200,
+            spread: 120,
+            origin: { y: 0.6 }
+        });
+    }, 800);
+</script>
+
+</body>
 </html>
